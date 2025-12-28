@@ -46,29 +46,29 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("👤 Personal & Symptoms")
     age = st.slider("Age", 29, 77, 54)
-    sex = st.selectbox("Sex", options=[1, 0], format_func=lambda x: "Male" if x == 1 else "Female")
-    cp = st.selectbox("Chest Pain Type", options=[0,1,2,3],
-                      format_func=lambda x: ["Typical Angina", "Atypical Angina", "Non-anginal Pain", "Asymptomatic"][x])
+    sex = st.selectbox("Sex", options=[1, 0], index=0, format_func=lambda x: "Male" if x == 1 else "Female")  # Default: Male
+    cp = st.selectbox("Chest Pain Type", options=[0,1,2,3], index=0,
+                      format_func=lambda x: ["Typical Angina", "Atypical Angina", "Non-anginal Pain", "Asymptomatic"][x])  # Default: Typical Angina
 
     trestbps = st.slider("Resting Blood Pressure (mm Hg)", 94, 200, 130)
     chol = st.slider("Cholesterol (mg/dl)", 126, 564, 240)
 
 with col2:
     st.subheader("🩺 Clinical Measurements")
-    fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl", options=[1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
-    restecg = st.selectbox("Resting ECG", options=[0,1,2],
-                           format_func=lambda x: ["Normal", "ST-T Wave Abnormality", "Left Ventricular Hypertrophy"][x])
+    fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl", options=[1, 0], index=1, format_func=lambda x: "Yes" if x == 1 else "No")  # Default: No (more common)
+    restecg = st.selectbox("Resting ECG", options=[0,1,2], index=0,
+                           format_func=lambda x: ["Normal", "ST-T Wave Abnormality", "Left Ventricular Hypertrophy"][x])  # Default: Normal
     thalach = st.slider("Max Heart Rate Achieved", 71, 202, 150)
 
-    exang = st.selectbox("Exercise-Induced Angina", options=[0, 1], format_func=lambda x: "No" if x == 0 else "Yes")
+    exang = st.selectbox("Exercise-Induced Angina", options=[0, 1], index=0, format_func=lambda x: "No" if x == 0 else "Yes")  # Default: No
     oldpeak = st.slider("ST Depression (oldpeak)", 0.0, 6.2, 1.0, step=0.1)
-    slope = st.selectbox("ST Segment Slope", options=[0,1,2],
-                         format_func=lambda x: ["Upsloping", "Flat", "Downsloping"][x])
+    slope = st.selectbox("ST Segment Slope", options=[0,1,2], index=1,
+                         format_func=lambda x: ["Upsloping", "Flat", "Downsloping"][x])  # Default: Flat (common)
     ca = st.slider("Major Vessels (fluoroscopy)", 0, 4, 0)
 
     # FIXED: thal values are 1,2,3 in your dataset!
-    thal = st.selectbox("Thalassemia", options=[1, 2, 3],
-                        format_func=lambda x: {1: "Normal", 2: "Fixed Defect", 3: "Reversible Defect"}[x])
+    thal = st.selectbox("Thalassemia", options=[1, 2, 3], index=0,
+                        format_func=lambda x: {1: "Normal", 2: "Fixed Defect", 3: "Reversible Defect"}[x])  # Default: Normal
 
 # Prediction button
 if st.button("🔬 Predict Risk", type="primary", use_container_width=True):
