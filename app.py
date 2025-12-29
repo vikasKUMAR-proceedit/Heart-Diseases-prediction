@@ -45,7 +45,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("👤 Personal & Symptoms")
-    age = st.slider("Age", 29, 77, 54)
+    age = st.slider("Age (years)", 18, 100, 54, help="Patient age in years")
     sex = st.selectbox("Sex", options=[1, 0], index=0, format_func=lambda x: "Male" if x == 1 else "Female")  # Default: Male
     cp = st.selectbox("Chest Pain Type", options=[0,1,2,3], index=0,
                       format_func=lambda x: ["Typical Angina", "Atypical Angina", "Non-anginal Pain", "Asymptomatic"][x])  # Default: Typical Angina
@@ -116,3 +116,4 @@ st.markdown("""
     Built with ❤️ using Streamlit • Model: Random Forest • Dataset: UCI Heart Disease
     </p>
 """, unsafe_allow_html=True)
+
