@@ -32,7 +32,7 @@ with st.sidebar:
     st.image("https://img.icons8.com/emoji/100/000000/red-heart.png")
     st.header("📋 Feature Ranges (from dataset)")
     st.write("""
-    - **Age**: 29–77 years
+    - **Age**: 18–77 years
     - **Cholesterol**: 126–564 mg/dl
     - **Max Heart Rate**: 71–202 bpm
     - **Resting BP**: 94–200 mm Hg
@@ -116,4 +116,5 @@ st.markdown("""
     Built with ❤️ using Streamlit • Model: Random Forest • Dataset: UCI Heart Disease
     </p>
 """, unsafe_allow_html=True)
+
 
